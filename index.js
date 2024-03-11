@@ -192,12 +192,11 @@ function buscarLugar(event) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data.length > 0) {
-        const firstResult = data[0];
-        console.log(firstResult);
+        const firstResult = data[0];        
         map.setView([firstResult.lat, firstResult.lon], 13);
         L.marker([firstResult.lat, firstResult.lon]).addTo(map);
+        searchInput.value = ''
       } else {
         alert("Lugar no encontrado");
       }
